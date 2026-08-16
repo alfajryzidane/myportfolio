@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Zidane Al-Fajry — Aspiring Software Developer</title>
+  <meta name="description"
+    content="Portfolio of Zidane Al-Fajry, an 18-year-old vocational high school student and aspiring software developer from Central Java, Indonesia. Skilled in front-end and back-end web development, UI/UX design, and building websites with AI assistance." />
+  <meta name="keywords"
+    content="Software Developer, Web Developer, Front-End, Back-End, UI/UX Designer, Student, Portfolio, Indonesia, AI" />
+  <meta name="author" content="Zidane Al-Fajry" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Zidane Al-Fajry — Aspiring Software Developer" />
+  <meta property="og:description"
+    content="Portfolio of Zidane Al-Fajry — an 18-year-old aspiring software developer from Central Java, Indonesia." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236D28D9'/><text x='16' y='23' font-size='18' font-family='Georgia,serif' font-weight='700' fill='%23EDDD5E' text-anchor='middle'>Z</text></svg>" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+
+  <!-- Inline critical styles for hero background pattern -->
+  <style>
+    /* Subtle grid pattern overlay on hero */
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(109, 40, 217, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(109, 40, 217, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* Skill bar */
+    .skill-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--color-light-gray);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: var(--space-2);
+    }
+
+    .skill-bar__fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-brand-purple), var(--color-brand-gold));
+      border-radius: 6px;
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .about__skill-item {
+      margin-bottom: var(--space-4);
+    }
+
+    .about__skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-primary);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      margin-bottom: var(--space-1);
+    }
+
+    .about__skill-pct {
+      color: var(--color-brand-purple);
+    }
+
+    /* Project card image area */
+    .card-project__img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-project__img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--color-card-bg), #E0E7FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    /* Contact social row */
+    .contact__socials {
+      display: flex;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+    }
+
+    /* Section divider */
+    .section-divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-brand-purple), var(--color-brand-gold));
+      border-radius: 4px;
+      margin-top: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+
+    /* Experience tags */
+    .timeline__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- NAVIGATION                                            -->
+  <!-- ══════════════════════════════════════════════════════ -->
+
+  <header class="nav" id="nav" role="banner">
+    <div class="nav__inner">
+      <!-- Logo -->
+      <a href="#hero" class="nav__logo" aria-label="Zidane Al-Fajry Home">
+        Zidane<span>.</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav__links" role="navigation" aria-label="Primary navigation">
+        <a href="#about" class="nav__link" id="nav-about">About</a>
+        <a href="#skills" class="nav__link" id="nav-skills">Skills</a>
+        <a href="#projects" class="nav__link" id="nav-projects">Projects</a>
+        <a href="#experience" class="nav__link" id="nav-experience">Experience</a>
+        <a href="#contact" class="btn btn-primary nav__cta" id="nav-contact">Let's Talk</a>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <nav class="nav__mobile" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <a href="#about" class="nav__mobile-link" id="mnav-about">About</a>
+    <a href="#skills" class="nav__mobile-link" id="mnav-skills">Skills</a>
+    <a href="#projects" class="nav__mobile-link" id="mnav-projects">Projects</a>
+    <a href="#experience" class="nav__mobile-link" id="mnav-experience">Experience</a>
+    <a href="#contact" class="nav__mobile-link" id="mnav-contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- HERO                                                -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg-pattern"></div>
+
+      <div class="container">
+        <div class="hero__inner">
+
+          <!-- Content -->
+          <div class="hero__content">
+            <div class="hero__eyebrow fade-in delay-1">
+              👋 Hello, I'm Zidane
+            </div>
+
+            <h1 class="hero__title fade-up delay-2" id="hero-title">
+              Learning to Build<br />
+              <span class="highlight">Digital Solutions</span><br />
+              With AI as My Partner.
+            </h1>
+
+            <p class="hero__subtitle fade-up delay-3">
+              An 18-year-old vocational high school student passionate about becoming a software developer. I build
+              websites and web applications with the help of AI, combining front-end, back-end, and UI/UX skills to
+              bring ideas to life.
+            </p>
+
+            <div class="hero__actions fade-up delay-4">
+              <a href="#projects" class="btn btn-primary" id="hero-view-work">View My Work</a>
+              <a href="#contact" class="btn btn-pill-outlined" id="hero-contact">Get In Touch</a>
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div class="hero__image-wrap fade-in delay-3">
+            <div class="hero__image-ring">
+              <img src="assets/profile.jpeg" alt="Zidane Al-Fajry — Aspiring Software Developer" class="hero__image"
+                width="420" height="420" loading="eager" />
+            </div>
+
+            <!-- Floating cards -->
+            <div class="hero__float-card hero__float-card--tl" aria-hidden="true">
+              <span class="dot"></span>
+              Aspiring Developer
+            </div>
+            <div class="hero__float-card hero__float-card--br" aria-hidden="true">
+              <span class="dot" style="background: var(--color-brand-gold);"></span>
+              Open to Internship &amp; Freelance
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- STATS STRIP                                         -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <div class="section--sm" style="background: var(--color-midnight); color: white;">
+      <div class="container">
+        <div class="grid grid--4" style="gap: 0;">
+          <div class="stat-card fade-up delay-1">
+            <div class="stat-card__number" data-counter data-target="4" data-suffix="+">0+</div>
+            <div class="stat-card__label" style="color: rgba(255,255,255,0.6);">Months Interning</div>
+          </div>
+          <div class="stat-card fade-up delay-2">
+            <div class="stat-card__number" data-counter data-target="5" data-suffix="+">0+</div>
+            <div class="stat-card__label" style="color: rgba(255,255,255,0.6);">Projects Delivered</div>
+          </div>
+          <div class="stat-card fade-up delay-3">
+            <div class="stat-card__number" data-counter data-target="9" data-suffix="+">0+</div>
+            <div class="stat-card__label" style="color: rgba(255,255,255,0.6);">Technologies</div>
+          </div>
+          <div class="stat-card fade-up delay-4">
+            <div class="stat-card__number" style="font-size: clamp(1.2rem, 3vw, 1.8rem);">Still Growing 🚀</div>
+            <div class="stat-card__label" style="color: rgba(255,255,255,0.6);">Every Single Day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- ABOUT                                               -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__inner">
+
+          <!-- Image column -->
+          <div class="about__image-wrap fade-in">
+            <img src="assets/profile.jpeg" alt="Zidane Al-Fajry" class="about__image" width="400" height="500"
+              loading="lazy" />
+            <div class="about__image-accent" aria-hidden="true"></div>
+          </div>
+
+          <!-- Content column -->
+          <div>
+            <div class="section-eyebrow fade-up">Who I Am</div>
+            <h2 class="section__title fade-up delay-1" id="about-title">
+              Still Learning,<br />Always Building.
+            </h2>
+            <div class="section-divider fade-up delay-1" aria-hidden="true"></div>
+
+            <p class="text-body fade-up delay-2" style="margin-bottom: var(--space-4); color: var(--color-slate-gray);">
+              I'm an 18-year-old vocational high school (SMK) student from Central Java, Indonesia, currently learning
+              to become a software developer. I enjoy exploring how AI can be used not just as a tool, but as a partner
+              — helping me design, build, and refine websites that match exactly what a client envisions.
+            </p>
+            <p class="text-body fade-up delay-3" style="margin-bottom: var(--space-6); color: var(--color-slate-gray);">
+              My skills are still developing, and that's exactly what excites me. I care about writing clean code,
+              designing intuitive interfaces, and understanding how each layer of an application — from front-end to
+              database — works together.
+            </p>
+
+            <!-- Skill bars -->
+            <div class="fade-up delay-3">
+              <div class="about__skill-item">
+                <div class="about__skill-header">
+                  <span>HTML &amp; CSS</span>
+                  <span class="about__skill-pct">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-bar__fill" data-width="80%"></div>
+                </div>
+              </div>
+
+              <div class="about__skill-item">
+                <div class="about__skill-header">
+                  <span>Bootstrap</span>
+                  <span class="about__skill-pct">75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-bar__fill" data-width="75%"></div>
+                </div>
+              </div>
+
+              <div class="about__skill-item">
+                <div class="about__skill-header">
+                  <span>PHP (Native &amp; Laravel)</span>
+                  <span class="about__skill-pct">65%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-bar__fill" data-width="65%"></div>
+                </div>
+              </div>
+
+              <div class="about__skill-item">
+                <div class="about__skill-header">
+                  <span>JavaScript <em
+                      style="font-size:12px; color: var(--color-brand-purple); font-style:normal;">(Currently
+                      Learning)</em></span>
+                  <span class="about__skill-pct">40%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-bar__fill" data-width="40%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="about__tags fade-up delay-4">
+              <span class="badge">Front-End Developer</span>
+              <span class="badge badge-sage">Back-End Developer</span>
+              <span class="badge badge-gold">UI/UX Designer</span>
+              <span class="badge badge-outline">AI-Assisted Development</span>
+            </div>
+
+            <!-- Stats -->
+            <div class="about__stats fade-up delay-5">
+              <div class="stat-card" style="padding: 0;">
+                <div class="stat-card__number" style="font-size: 32px;" data-counter data-target="4" data-suffix="+">4+
+                </div>
+                <div class="stat-card__label">Months Interning</div>
+              </div>
+              <div class="stat-card" style="padding: 0;">
+                <div class="stat-card__number" style="font-size: 32px;" data-counter data-target="5" data-suffix="+">5+
+                </div>
+                <div class="stat-card__label">Projects</div>
+              </div>
+              <div class="stat-card" style="padding: 0;">
+                <div class="stat-card__number" style="font-size: 32px;" data-counter data-target="4" data-suffix="+">4+
+                </div>
+                <div class="stat-card__label">Skills in Progress</div>
+              </div>
+            </div>
+
+            <div class="fade-up delay-5" style="margin-top: var(--space-8);">
+              <a href="#contact" class="btn btn-primary" id="about-cta">Let's Work Together</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- SKILLS                                              -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <section class="section section--alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section__header section__header--center fade-up">
+          <div class="section-eyebrow" style="justify-content: center;">What I Work With</div>
+          <h2 class="section__title" id="skills-title">Technical Skills &amp; Tools</h2>
+          <p class="section__subtitle">A growing toolkit spanning front-end, back-end, database, and design — still
+            being sharpened every day.</p>
+        </div>
+
+        <div class="grid grid--skills" style="gap: var(--space-4);">
+
+          <div class="card-skill fade-up delay-1" id="skill-html">
+            <span class="card-skill__icon">🌐</span>
+            <div class="card-skill__name">HTML</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-2" id="skill-css">
+            <span class="card-skill__icon">🎨</span>
+            <div class="card-skill__name">CSS</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-3" id="skill-bootstrap">
+            <span class="card-skill__icon">🅱️</span>
+            <div class="card-skill__name">Bootstrap</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-4" id="skill-js">
+            <span class="card-skill__icon">⚡</span>
+            <div class="card-skill__name">JavaScript</div>
+            <div class="card-skill__level">Learning</div>
+          </div>
+
+          <div class="card-skill fade-up delay-1" id="skill-php">
+            <span class="card-skill__icon">🐘</span>
+            <div class="card-skill__name">PHP (Native)</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-2" id="skill-laravel">
+            <span class="card-skill__icon">🅻</span>
+            <div class="card-skill__name">Laravel</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-3" id="skill-mysql">
+            <span class="card-skill__icon">🗄️</span>
+            <div class="card-skill__name">MySQL</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-4" id="skill-mariadb">
+            <span class="card-skill__icon">🗄️</span>
+            <div class="card-skill__name">MariaDB</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-1" id="skill-figma">
+            <span class="card-skill__icon">🎯</span>
+            <div class="card-skill__name">Figma (UI/UX)</div>
+            <div class="card-skill__level">Intermediate</div>
+          </div>
+
+          <div class="card-skill fade-up delay-2" id="skill-python">
+            <span class="card-skill__icon">🐍</span>
+            <div class="card-skill__name">Python</div>
+            <div class="card-skill__level">Beginner</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- PROJECTS                                            -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section__header fade-up">
+          <div class="section-eyebrow">What I've Built</div>
+          <h2 class="section__title" id="projects-title">Featured Projects</h2>
+          <p class="section__subtitle" style="color: var(--color-slate-gray);">A selection of personal and ongoing
+            projects as I learn to design and build real-world web applications.</p>
+        </div>
+
+        <div class="grid grid--3">
+
+          <!-- Project 1 -->
+          <article class="card-project fade-up delay-1" id="project-ai-website">
+            <div class="card-project__img-placeholder">🤖</div>
+            <div class="card-project__body">
+              <div class="card-project__tags">
+                <span class="badge badge-tech">HTML</span>
+                <span class="badge badge-tech">CSS</span>
+                <span class="badge badge-tech">Bootstrap</span>
+              </div>
+              <h3 class="card-project__title">AI-Assisted Website Builder</h3>
+              <p class="card-project__desc">
+                A personal project exploring how AI tools can accelerate website design and development, from layout
+                planning to responsive styling.
+              </p>
+              <div class="card-project__footer">
+                <a href="#projects" class="btn btn-brand" id="proj1-view">View Details →</a>
+                <span class="badge badge-sage">In Progress</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="card-project fade-up delay-2" id="project-biometric">
+            <div class="card-project__img-placeholder">👁️</div>
+            <div class="card-project__body">
+              <div class="card-project__tags">
+                <span class="badge badge-tech">Python</span>
+                <span class="badge badge-tech">OpenCV</span>
+              </div>
+              <h3 class="card-project__title">Face &amp; Fingerprint Recognition</h3>
+              <p class="card-project__desc">
+                A simple biometric recognition project using Python, built to explore computer vision basics for face
+                and fingerprint detection.
+              </p>
+              <div class="card-project__footer">
+                <a href="#projects" class="btn btn-brand" id="proj2-view">View Details →</a>
+                <span class="badge">Learning Project</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="card-project fade-up delay-3" id="project-laravel-app">
+            <div class="card-project__img-placeholder">🌐</div>
+            <div class="card-project__body">
+              <div class="card-project__tags">
+                <span class="badge badge-tech">PHP</span>
+                <span class="badge badge-tech">Laravel</span>
+                <span class="badge badge-tech">MySQL</span>
+              </div>
+              <h3 class="card-project__title">Laravel Web Application</h3>
+              <p class="card-project__desc">
+                A web application built during my internship at PT Dieng Cyber Indonesia, applying Laravel and MySQL to
+                create a functional, real-world solution.
+              </p>
+              <div class="card-project__footer">
+                <a href="#projects" class="btn btn-brand" id="proj3-view">View Details →</a>
+                <span class="badge badge-sage">Completed</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="card-project fade-up delay-1" id="project-next">
+            <div class="card-project__img-placeholder">🚀</div>
+            <div class="card-project__body">
+              <div class="card-project__tags">
+                <span class="badge badge-tech">PHP</span>
+                <span class="badge badge-tech">Bootstrap</span>
+                <span class="badge badge-tech">MySQL</span>
+              </div>
+              <h3 class="card-project__title">Project Currently in Development</h3>
+              <p class="card-project__desc">
+                A new web application currently in development — combining front-end design and back-end logic to build
+                something useful and well-crafted.
+              </p>
+              <div class="card-project__footer">
+                <a href="#projects" class="btn btn-brand" id="proj4-view">View Details →</a>
+                <span class="badge">In Progress</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- EXPERIENCE                                          -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <section class="section section--alt" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section__header fade-up">
+          <div class="section-eyebrow">Career Path</div>
+          <h2 class="section__title" id="experience-title">Work Experience</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: start;">
+
+          <!-- Timeline -->
+          <div class="timeline fade-up">
+
+            <div class="timeline__item">
+              <div class="timeline__dot"></div>
+              <div class="timeline__date">2025 — Present</div>
+              <div class="timeline__role">Software Developer Intern (PKL)</div>
+              <div class="timeline__company">PT Dieng Cyber Indonesia · Wonosobo, Central Java</div>
+              <p class="timeline__desc">
+                Completing a school internship (PKL) for approximately 4 months at PT Dieng Cyber Indonesia, gaining
+                hands-on experience in software development and expanding practical knowledge in web development.
+              </p>
+              <div class="timeline__tags">
+                <span class="badge badge-tech">PHP</span>
+                <span class="badge badge-tech">Laravel</span>
+                <span class="badge badge-tech">MySQL</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Education & Currently Learning -->
+          <div class="fade-up delay-2">
+            <h3
+              style="font-size: var(--text-h4); font-weight: 700; color: var(--color-midnight); margin-bottom: var(--space-6);">
+              Education &amp; Currently Learning</h3>
+
+            <!-- Education -->
+            <div style="margin-bottom: var(--space-8);">
+              <div class="timeline__date">2023 — Present</div>
+              <div class="timeline__role" style="font-size: var(--text-body); margin-top: var(--space-2);">Student —
+                Software Engineering / RPL</div>
+              <div class="timeline__company">SMKN 1 Rembang, Kab. Purbalingga, Central Java</div>
+            </div>
+
+            <!-- Currently Learning -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+
+              <div
+                style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); background: var(--color-white); border-radius: var(--radius-sm); border: 1px solid var(--color-light-gray);">
+                <span style="font-size: 28px; flex-shrink: 0;">🌐</span>
+                <div>
+                  <div
+                    style="font-family: var(--font-primary); font-weight: 700; font-size: 15px; color: var(--color-midnight);">
+                    Front-End Development</div>
+                  <div style="font-family: var(--font-secondary); font-size: 13px; color: var(--color-slate-gray);">
+                    HTML, CSS, Bootstrap, JavaScript</div>
+                </div>
+                <span class="badge badge-sage" style="margin-left: auto; flex-shrink: 0;">In Progress</span>
+              </div>
+
+              <div
+                style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); background: var(--color-white); border-radius: var(--radius-sm); border: 1px solid var(--color-light-gray);">
+                <span style="font-size: 28px; flex-shrink: 0;">🐘</span>
+                <div>
+                  <div
+                    style="font-family: var(--font-primary); font-weight: 700; font-size: 15px; color: var(--color-midnight);">
+                    Back-End Development</div>
+                  <div style="font-family: var(--font-secondary); font-size: 13px; color: var(--color-slate-gray);">PHP,
+                    Laravel, MySQL &amp; MariaDB</div>
+                </div>
+                <span class="badge badge-sage" style="margin-left: auto; flex-shrink: 0;">In Progress</span>
+              </div>
+
+              <div
+                style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); background: var(--color-white); border-radius: var(--radius-sm); border: 1px solid var(--color-light-gray);">
+                <span style="font-size: 28px; flex-shrink: 0;">🎯</span>
+                <div>
+                  <div
+                    style="font-family: var(--font-primary); font-weight: 700; font-size: 15px; color: var(--color-midnight);">
+                    UI/UX Design</div>
+                  <div style="font-family: var(--font-secondary); font-size: 13px; color: var(--color-slate-gray);">
+                    Figma</div>
+                </div>
+                <span class="badge badge-sage" style="margin-left: auto; flex-shrink: 0;">In Progress</span>
+              </div>
+
+              <div
+                style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); background: var(--color-white); border-radius: var(--radius-sm); border: 1px solid var(--color-light-gray);">
+                <span style="font-size: 28px; flex-shrink: 0;">🐍</span>
+                <div>
+                  <div
+                    style="font-family: var(--font-primary); font-weight: 700; font-size: 15px; color: var(--color-midnight);">
+                    Python for Computer Vision</div>
+                  <div style="font-family: var(--font-secondary); font-size: 13px; color: var(--color-slate-gray);">
+                    OpenCV, Biometric Recognition</div>
+                </div>
+                <span class="badge" style="margin-left: auto; flex-shrink: 0;">Beginner</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- CONTACT                                             -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section__header section__header--center fade-up">
+          <div class="section-eyebrow" style="justify-content: center;">Get In Touch</div>
+          <h2 class="section__title" id="contact-title">Let's Build Something Together</h2>
+          <p class="section__subtitle" style="color: var(--color-slate-gray);">Have a project in mind? Open to new
+            opportunities, collaborations, and conversations.</p>
+        </div>
+
+        <div class="contact__inner">
+
+          <!-- Info -->
+          <div class="fade-up">
+            <div class="contact__info-item">
+              <div class="contact__info-icon">📍</div>
+              <div>
+                <div class="contact__info-label">Location</div>
+                <div class="contact__info-value">Central Java, Indonesia</div>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon">📧</div>
+              <div>
+                <div class="contact__info-label">Email</div>
+                <div class="contact__info-value">
+                  <a href="mailto:alfajryzidane@gmail.com" id="contact-email"
+                    style="color: var(--color-brand-purple); text-decoration: none;">alfajryzidane@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon">💼</div>
+              <div>
+                <div class="contact__info-label">LinkedIn</div>
+                <div class="contact__info-value" style="color: var(--color-slate-gray);">
+                  Coming soon
+                </div>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon">🐙</div>
+              <div>
+                <div class="contact__info-label">GitHub</div>
+                <div class="contact__info-value">
+                  <a href="https://github.com/alfajryzidane" id="contact-github" target="_blank"
+                    rel="noopener noreferrer" style="color: var(--color-brand-purple);">github.com/alfajryzidane</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact__socials">
+              <a href="https://github.com/alfajryzidane" id="social-github" target="_blank" rel="noopener noreferrer"
+                class="social-link" aria-label="GitHub profile" style="font-family: monospace; font-weight: 700;">gh</a>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="fade-up delay-2">
+            <form class="contact__form" id="contact-form" novalidate aria-label="Contact form">
+              <h3
+                style="font-family: var(--font-primary); font-size: var(--text-h4); font-weight: 700; color: var(--color-midnight);">
+                Send a Message</h3>
+
+              <div class="grid grid--2" style="gap: var(--space-4);">
+                <div class="form-group">
+                  <label class="form-label" for="field-name">Full Name</label>
+                  <input type="text" id="field-name" name="name" class="form-input" placeholder="Your full name"
+                    autocomplete="name" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="field-email">Email Address</label>
+                  <input type="email" id="field-email" name="email" class="form-input" placeholder="your@email.com"
+                    autocomplete="email" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="field-subject">Subject</label>
+                <input type="text" id="field-subject" name="subject" class="form-input" placeholder="What's this about?"
+                  required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="field-message">Message</label>
+                <textarea id="field-message" name="message" class="form-textarea"
+                  placeholder="Tell me about your project or opportunity…" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="form-submit"
+                style="align-self: flex-start; min-width: 180px;">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════ -->
+  <!-- FOOTER                                              -->
+  <!-- ════════════════════════════════════════════════════ -->
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <!-- Brand col -->
+        <div>
+          <div class="footer__brand">Zidane<span>.</span></div>
+          <p class="footer__desc">
+            Aspiring software developer learning to build websites and applications with the help of AI. Based in
+            Central Java, Indonesia.
+          </p>
+          <div class="contact__socials">
+            <a href="https://github.com/alfajryzidane" id="footer-github" target="_blank" rel="noopener noreferrer"
+              class="social-link" aria-label="GitHub"
+              style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); font-family: monospace; font-weight: 700;">gh</a>
+          </div>
+        </div>
+
+        <!-- Nav links -->
+        <div>
+          <div class="footer__heading">Navigation</div>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="#about" class="footer__link" id="footer-nav-about">About</a>
+            <a href="#skills" class="footer__link" id="footer-nav-skills">Skills</a>
+            <a href="#projects" class="footer__link" id="footer-nav-projects">Projects</a>
+            <a href="#experience" class="footer__link" id="footer-nav-experience">Experience</a>
+            <a href="#contact" class="footer__link" id="footer-nav-contact">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Contact quick -->
+        <div>
+          <div class="footer__heading">Contact</div>
+          <div class="footer__links">
+            <a href="mailto:alfajryzidane@gmail.com" class="footer__link" id="footer-email">alfajryzidane@gmail.com</a>
+            <span class="footer__link" style="cursor: default;">Central Java, Indonesia</span>
+            <a href="#contact" class="btn btn-primary" id="footer-cta"
+              style="margin-top: var(--space-4); display: inline-flex;">Hire Me</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; <span id="current-year">2025</span> Zidane Al-Fajry. All rights reserved.
+        </p>
+        <p class="footer__copy">
+          Designed with ♥ in Indonesia
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M10 15V5M10 5L5 10M10 5L15 10" stroke="white" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+  <script src="js/contact.js" defer></script>
+
+</body>
+
+</html>

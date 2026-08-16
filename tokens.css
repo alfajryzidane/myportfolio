@@ -1,0 +1,173 @@
+/* ============================================================
+   DESIGN TOKENS — Zidane Al-Fajry Design System
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COLOR — PRIMARY
+  ---------------------------------------------------------- */
+  --color-charcoal:     #212529;
+  --color-midnight:     #0F172A;
+  --color-pure-black:   #000000;
+
+  /* ----------------------------------------------------------
+     COLOR — ACCENT
+  ---------------------------------------------------------- */
+  --color-brand-purple: #6D28D9;
+  --color-slate-gray:   #64748B;
+  --color-tech-blue:    #0D6EFD;
+
+  /* ----------------------------------------------------------
+     COLOR — INTERACTIVE
+  ---------------------------------------------------------- */
+  --color-sage-green:   #5B8C51;
+  --color-web-blue:     #0000EE;
+  --color-brand-gold:   #EDDD5E;
+
+  /* ----------------------------------------------------------
+     COLOR — NEUTRAL SCALE
+  ---------------------------------------------------------- */
+  --color-white:        #FFFFFF;
+  --color-off-white:    #F8FAFC;
+  --color-light-gray:   #E5E7EB;
+  --color-soft-border:  #CBD5E1;
+  --color-medium-gray:  #777777;
+  --color-dark-gray:    #444444;
+  --color-muted-green:  #B0B9AE;
+
+  /* ----------------------------------------------------------
+     COLOR — SURFACE & BORDERS
+  ---------------------------------------------------------- */
+  --color-card-bg:      #F1F5F9;
+  --color-border-dark:  #404A3D;
+  --color-light-border: rgba(0, 0, 0, 0.1);
+
+  /* ----------------------------------------------------------
+     COLOR — SEMANTIC / STATUS
+  ---------------------------------------------------------- */
+  --color-error:        #DB3737;
+  --color-alt-error:    #DC3545;
+  --color-warning:      #FFC107;
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — FONT FAMILIES
+  ---------------------------------------------------------- */
+  --font-primary:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+  --font-display:   'Libre Baskerville', Georgia, serif;
+  --font-alt:       'Raleway', sans-serif;
+  --font-button:    Arial, sans-serif;
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — SIZES
+  ---------------------------------------------------------- */
+  --text-display-xxl: 40px;
+  --text-display-xl:  40px;
+  --text-display-lg:  32px;
+  --text-h1:          20px;
+  --text-h2:          30px;
+  --text-h2-alt:      24px;
+  --text-h3:          36px;
+  --text-h4:          20px;
+  --text-h5:          20px;
+  --text-body:        16px;
+  --text-body-alt:    24px;
+  --text-body-list:   16px;
+  --text-caption:     14px;
+  --text-span:        16px;
+  --text-span-alt:    20px;
+  --text-button:      13.33px;
+  --text-link:        18px;
+  --text-link-sm:     16px;
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — LINE HEIGHTS
+  ---------------------------------------------------------- */
+  --lh-display-xxl: 48px;
+  --lh-h1:          28px;
+  --lh-h2-alt:      28.8px;
+  --lh-h3:          40px;
+  --lh-h5:          24px;
+  --lh-body:        26px;
+  --lh-body-alt:    36px;
+  --lh-body-list:   24px;
+  --lh-caption:     21px;
+  --lh-span:        24px;
+  --lh-link:        28px;
+  --lh-link-sm:     24px;
+
+  /* ----------------------------------------------------------
+     SPACING — 8px BASE UNIT SCALE
+  ---------------------------------------------------------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-13: 52px;
+  --space-15: 60px;
+  --space-25: 100px;
+
+  /* ----------------------------------------------------------
+     BORDER RADIUS
+  ---------------------------------------------------------- */
+  --radius-xs:   5px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   10px;
+  --radius-xl:   12px;
+  --radius-2xl:  15px;
+  --radius-pill: 800px;
+
+  /* ----------------------------------------------------------
+     BORDER WIDTH
+  ---------------------------------------------------------- */
+  --border-thin:   1px;
+  --border-medium: 2px;
+
+  /* ----------------------------------------------------------
+     SHADOWS
+  ---------------------------------------------------------- */
+  --shadow-none:   none;
+  --shadow-sm:     rgba(0, 0, 0, 0.2) 0px 2px 8px 2px;
+  --shadow-md:     rgba(0, 0, 0, 0.2) 0px 4px 8px 0px,
+                   rgba(0, 0, 0, 0.19) 0px 6px 20px 0px;
+  --shadow-nav:    rgba(0, 0, 0, 0.07) 0px 1.89975px 3.79951px 0px;
+  --shadow-inset:  rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+  --shadow-gold-hover: rgba(0, 0, 0, 0.12) 0px 2px 8px;
+  --shadow-purple: rgba(109, 40, 217, 0.3) 0px 4px 12px;
+  --focus-ring:    0px 0px 0px 3px rgba(109, 40, 217, 0.2);
+  --focus-ring-error: 0px 0px 0px 3px rgba(219, 55, 55, 0.1);
+
+  /* ----------------------------------------------------------
+     Z-INDEX
+  ---------------------------------------------------------- */
+  --z-base:     1;
+  --z-above:    2;
+  --z-dropdown: 10;
+  --z-overlay:  99;
+  --z-sticky:   997;
+  --z-modal:    1000;
+  --z-top:      1020;
+
+  /* ----------------------------------------------------------
+     TRANSITIONS
+  ---------------------------------------------------------- */
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.25s ease;
+  --transition-slow:   0.4s ease;
+
+  /* ----------------------------------------------------------
+     LAYOUT
+  ---------------------------------------------------------- */
+  --max-width:         1440px;
+  --content-width:     1260px;
+  --nav-height:        80px;
+  --section-pad-v:     var(--space-25);   /* 100px */
+  --section-pad-h:     var(--space-12);   /* 48px */
+}
